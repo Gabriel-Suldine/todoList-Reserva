@@ -41,7 +41,7 @@ function App() {
   const [teste, setTeste] = useState<any>()
 
   useEffect(() => {
-    pegaDados();
+    pegaDadosAqui();
   }, [teste]);
 
   const saveNoBanco = () => {
@@ -53,7 +53,7 @@ function App() {
     save(tsk);
   }
 
-  const pegaDados = async () => {
+  const pegaDadosAqui = async () => {
     try {
       const { data } = await api.get('tasks');
       setTasks(data);
