@@ -6,6 +6,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import { CardTarefa } from './CardTarefa/inde.tsx';
 import { Task } from './types/index.ts';
 import { api, save } from './service/api';
+import { getAll } from './service/api';
 
 
 
@@ -41,7 +42,11 @@ function App() {
   const [teste, setTeste] = useState<any>()
 
   useEffect(() => {
-    pegaDadosAqui();
+    //pegaDadosAqui();
+    const listTask =async () => {
+      setTasks(await getAll())      
+    }
+    listTask();
   }, [teste]);
 
   const saveNoBanco = () => {
